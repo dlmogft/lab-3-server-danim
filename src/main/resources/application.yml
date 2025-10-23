@@ -1,0 +1,15 @@
+
+# The specified Git repository contains the file lab-3-client.yml
+# with a key-value pair such as lucky-word: "Spanish"
+# (Note that it won't work if the value is not set between quotes!)
+# Once the application is started, the URL http://localhost:8001/lab-3-client/default shows the JSON including it
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/dlmogft/spring-cloud-server-config-danim"
+
+server:
+  port: 8001
