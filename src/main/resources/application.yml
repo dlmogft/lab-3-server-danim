@@ -5,11 +5,25 @@
 # Once the application is started, the URL http://localhost:8001/lab-3-client/default shows the JSON including it
 
 spring:
+  application:
+    name: config-server
   cloud:
     config:
       server:
         git:
           uri: "https://github.com/dlmogft/spring-cloud-server-config-danim"
+    bus:
+      enabled: true
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
 
 server:
   port: 8001
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,beans,env,configprops,mappings,busrefresh
