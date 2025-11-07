@@ -7,6 +7,47 @@
 spring:
   application:
     name: config-server
+  profiles:
+    active: default
+
+server:
+  port: 8001
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,beans,env,configprops,mappings,busrefresh
+
+---
+# ============================================================
+# DEFAULT PROFILE → without connection to Kafka
+# ============================================================
+spring:
+  config:
+    activate:
+      on-profile: default
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/dlmogft/spring-cloud-server-config-danim"
+    bus:
+      enabled: false
+    stream:
+      kafka:
+        binder:
+          brokers: ""
+
+---
+# ============================================================
+# KAFKA PROFILE→ with connection to Kafka and bus enabled
+# ============================================================
+spring:
+  config:
+    activate:
+      on-profile: kafka
+
   cloud:
     config:
       server:
@@ -18,12 +59,3 @@ spring:
       kafka:
         binder:
           brokers: localhost:9092
-
-server:
-  port: 8001
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,beans,env,configprops,mappings,busrefresh
