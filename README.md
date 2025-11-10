@@ -11,7 +11,7 @@ The steps to do this are:
 - Start this project with Kafka profile, **mvn spring-boot:run -Dspring.profiles.active=kafka**
 - Change the configuration value for **wordConfig.luckyWord** in **lucky-word-client.yml** from repository **spring-cloud-server-config-danim**
 - Execute the endpoint **localhost:8001/actuator/busrefresh**
-- Start the **lab-3-client-danim** project and open **http://localhost:8002/lucky-word**. The displayed word should be loaded
+- Start the **lab-3-client-danim** project with Kafka profile, **mvn spring-boot:run -Dspring.profiles.active=kafka**and open **http://localhost:8002/lucky-word**. The displayed word should be loaded
 
 # Dependencies
 
