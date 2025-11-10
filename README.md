@@ -8,6 +8,7 @@ Start the Java class annotated by @SpringBootApplication and check it's started 
 The project can also be started to connect to Kafka in order to refresh the configuration via publishing a message in a Kafka topic.<br>
 The steps to do this are:
 - Start a local installation of Kafka in localhost:9092
+- Start this project with Kafka profile, **mvn spring-boot:run -Dspring.profiles.active=kafka**
 - Change the configuration value for **wordConfig.luckyWord** in **lucky-word-client.yml** from repository **spring-cloud-server-config-danim**
 - Execute the endpoint **localhost:8001/actuator/busrefresh**
 - Start the **lab-3-client-danim** project and open **http://localhost:8002/lucky-word**. The displayed word should be loaded
